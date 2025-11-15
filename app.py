@@ -1,6 +1,8 @@
 import streamlit as st
-from langchain.chat_models import ChatOpenAI
+
+from langchain_openai import ChatOpenAI
 from langchain.schema import SystemMessage, HumanMessage
+
 import os
 
 # Streamlit SecretsからAPIキー取得
@@ -49,3 +51,4 @@ if st.button("送信"):
         st.write(answer)
     else:
         st.warning("質問を入力してください。")
+
