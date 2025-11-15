@@ -1,13 +1,11 @@
-from dotenv import load_dotenv
-
-load_dotenv()
 import streamlit as st
 from langchain.chat_models import ChatOpenAI
 from langchain.schema import SystemMessage, HumanMessage
 import os
 
-# OpenAI APIキー設定（Streamlit CloudではSecrets管理を推奨）
+# Streamlit SecretsからAPIキー取得
 os.environ["OPENAI_API_KEY"] = st.secrets["OPENAI_API_KEY"]
+
 
 # LLM初期化
 llm = ChatOpenAI(model_name="gpt-4o-mini", temperature=0.5)
@@ -52,3 +50,4 @@ if st.button("送信"):
         st.write(answer)
     else:
         st.warning("質問を入力してください。")
+
