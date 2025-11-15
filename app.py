@@ -6,7 +6,6 @@ import os
 # Streamlit SecretsからAPIキー取得
 os.environ["OPENAI_API_KEY"] = st.secrets["OPENAI_API_KEY"]
 
-
 # LLM初期化
 llm = ChatOpenAI(model_name="gpt-4o-mini", temperature=0.5)
 
@@ -50,4 +49,3 @@ if st.button("送信"):
         st.write(answer)
     else:
         st.warning("質問を入力してください。")
-
