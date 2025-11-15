@@ -1,14 +1,12 @@
 import os
 import streamlit as st
-from dotenv import load_dotenv
 from langchain.chat_models import ChatOpenAI
 from langchain.schema import SystemMessage, HumanMessage
 from langchain.chains import LLMChain
 from langchain.prompts import ChatPromptTemplate
 
 # 環境変数の読み込み
-load_dotenv()
-openai_api_key = os.getenv("OPENAI_API_KEY")
+openai_api_key = st.secrets["OPENAI_API_KEY"]
 
 # LLMの初期化
 chat = ChatOpenAI(openai_api_key=openai_api_key, temperature=0.7, model="gpt-3.5-turbo")
